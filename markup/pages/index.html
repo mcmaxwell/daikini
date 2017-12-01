@@ -415,7 +415,7 @@
       </div>
     </div>
   </section>
-<footer class="footer">
+<!-- <footer class="footer">
   <div class="container">
     <div class="copy">
         © Daikin 2017
@@ -428,8 +428,8 @@
       </a>
     </div>
   </div>
-</footer>
-<div class="remodal" data-remodal-id="modal">
+</footer> -->
+<div class="remodal" data-remodal-id="modal" style="opacity:0">
   <button data-remodal-action="close" class="remodal-close"></button>
   <div class="poup_form">
   <p>ЗАПОЛНИТЕ ФОРМУ</p>
@@ -494,7 +494,7 @@ $(document).ready(function() {
             },
             success: function() {
                 $('#post_form_2').hide('slow');
-                $('.post_thanks_2').removeClass('hide');
+                $('.post_thanks').removeClass('hide');
             }
         })
         return false;
