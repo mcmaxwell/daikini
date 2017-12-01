@@ -1,2 +1,105 @@
-// GUI stylies of the project
-// For example, styles of the links, buttons and so on.
+
+.icon {
+    display: inline-block;
+    font-family: "icomoon";
+    line-height: 1;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+}
+
+.icon-mail {
+  &:before {
+    content: $icon-mail;
+  }
+}
+.icon-call {
+  &:before {
+    content:$icon-call;
+  }
+}
+.icon-house {
+  &:before {
+    content: $icon-house;
+  }
+}
+.icon-coin {
+  &:before {
+    content: $icon-coin;
+  }
+}
+.icon-thermometer {
+  &:before {
+    content: $icon-thermometer;
+  }
+}
+.icon-snowflake {
+  &:before {
+    content: $icon-snowflake;
+  }
+}
+.icon-drop {
+  &:before {
+    content: $icon-drop;
+  }
+}
+.icon-sunny-day {
+  &:before {
+    content: $icon-sunny-day;
+  }
+}
+.icon-energy {
+  &:before {
+    content: $icon-energy;
+  }
+}
+.icon-wifi-connection {
+  &:before {
+    content: $icon-wifi-connection;
+  }
+}
+.icon-calendar {
+  &:before {
+    content: $icon-calendar;
+  }
+}
+.icon-settings-gears {
+  &:before {
+    content: $icon-settings-gears;
+  }
+}
+.icon-wrench {
+  &:before {
+    content: $icon-wrench;
+  }
+}
+.icon-settings {
+  &:before {
+    content: $icon-settings;
+  }
+}
+.icon-air-conditioner {
+  &:before {
+    content: $icon-air-conditioner;
+  }
+}
+.icon-shipped {
+  &:before {
+    content: $icon-shipped;
+  }
+}
+.icon-school-material {
+  &:before {
+    content: $icon-school-material;
+  }
+}
+.icon-question {
+  &:before {
+    content: $icon-question;
+  }
+}

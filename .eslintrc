@@ -23,7 +23,7 @@
     },
 
     "rules": {
-        "indent": [2, 4, {"SwitchCase": 1}],
+        "indent": [2, 2, {"SwitchCase": 1}],
         "brace-style": [2, "1tbs"],
         "camelcase": [2, { "properties": "always" }],
         "comma-spacing": [2, {"before": false, "after": true}],
@@ -54,7 +54,7 @@
         "no-labels": 2,
         "no-lone-blocks": 2,
         "no-loop-func": 1,
-        "no-mixed-spaces-and-tabs": [2, false],
+        "no-mixed-spaces-and-tabs": [2, true],
         "no-multi-spaces": 2,
         "no-multi-str": 2,
         "no-native-reassign": 2,
