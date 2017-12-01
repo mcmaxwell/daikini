@@ -2,7 +2,9 @@
 html, body{
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
+
 *{
   font-family: 'Open Sans', sans-serif;
 
@@ -11,8 +13,16 @@ html, body{
   }
 }
 
+a {
+  text-decoration: none;
+}
+
 .hide {
     display: none!important;
+}
+
+#post_form {
+  margin-top: 10px;
 }
 
 .header{
@@ -1187,7 +1197,6 @@ html, body{
 .poup_form {
   background: #fff;
     max-width: 323px;
-    max-height: 383px;
     padding: 20px;
 
     .contact {
@@ -1282,6 +1291,10 @@ html, body{
   .warranty{
     padding-bottom: 50px;
   }
+  .principles .item {
+    min-height: 285px;
+    background: url(../img/content/house.png) no-repeat 18px 16px /contain;
+}
   .comfort .list{
     right: 0;
     top: 0;
@@ -1317,6 +1330,10 @@ html, body{
   .header .banner{
     display: none;
   }
+  .principles .item {
+    min-height: 285px;
+    background: url(../img/content/house.png) no-repeat 0 2px /contain;
+}
   .principles .item span{
     max-width: 315px;
     padding-top: 20px;
@@ -2053,6 +2070,19 @@ html, body{
   }
   .comfort{
     background-position: -197px 0;
+  }
+  .remodal {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: translate(0);
+  }
+  .poup_form {
+    background: #fff;
+    max-width: 100%;
+    width: 100%;
+    padding: 20px;
   }
 }
 
