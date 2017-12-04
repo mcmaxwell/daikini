@@ -3,8 +3,29 @@ html, body{
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  min-width: 320px;
 }
 
+main {
+  overflow: hidden;
+}
+
+.remodal-is-locked body{
+
+  width: 100%;
+
+  header,
+  main,
+  footer {
+    @media screen and (max-width: 768px){
+      display: none;
+    }
+  }
+
+  .poup_form {
+    position: absolute;
+  }
+}
 *{
   font-family: 'Open Sans', sans-serif;
 
@@ -12,10 +33,25 @@ html, body{
       outline: none;
   }
 }
-
+.flip-clock-wrapper {
+  display: flex;
+justify-content: center;
+}
+.remodal-close {
+  z-index: 1;
+}
 a {
   text-decoration: none;
 }
+
+label.error {
+  display: none!important;
+}
+input.error {
+  border: 1px solid red!important;
+  border-radius: 20px;
+}
+
 
 .hide {
     display: none!important;
@@ -66,7 +102,7 @@ a {
   color: #606060;
   font-size: 14px;
   display: block;
-  font-family: 'ProximaNova';
+  font-family: 'Roboto Condensed';
   margin-bottom: 0;
   letter-spacing: -0.35px;
 }
@@ -74,8 +110,8 @@ a {
   color: #010101;
   text-decoration: none;
   font-size: 20px;
-  font-family: 'ProximaNova';
-  font-weight: 800;
+  font-family: 'Roboto Condensed';
+
   letter-spacing: 1px;
 }
 .header .phone .icon-call {
@@ -122,8 +158,8 @@ a {
   background: #f07b07;
   font-size: 14px;
   text-align: center;
-  font-family: 'ProximaNova';
-  font-weight: 800;
+  font-family: 'Roboto Condensed';
+
   display: block;
   text-transform: uppercase;
   text-decoration: none;
@@ -185,9 +221,12 @@ a {
       background-color: rgba(#000, .4);
       opacity: 1;
       left: 0;
+      position: absolute;
+
       transition: all 0.3s ease, left 0s ease 0s ;
       .remodal {
         opacity: 1!important;
+        position: absolute;
       }
     }
 }
@@ -211,7 +250,7 @@ a {
         h3 {
             font-size: 20px;
             color: #009ada;
-            font-family: 'ProximaNova';
+            font-family: 'Roboto Condensed';
             font-style: italic;
             margin: 0;
             font-weight: 900;
@@ -267,7 +306,7 @@ a {
   max-width: 400px;
   color: #009ada;
   font-size: 24px;
-  font-family: 'ProximaNova';
+  font-family: 'Roboto Condensed';
   text-transform: uppercase;
   padding-top: 55px;
   display: block;
@@ -302,8 +341,8 @@ a {
   color: #171717;
   font-size: 24px;
   text-transform: uppercase;
-  font-family: 'ProximaNova';
-  font-weight: 800;
+  font-family: 'Roboto Condensed';
+
 }
 .principles .list p{
   font-family: "ProximaNovaRegular";
@@ -313,6 +352,10 @@ a {
   margin: 10px 0 0 0;
   line-height: 25px;
   letter-spacing: 1px;
+}
+
+.input {
+  overflow: hidden;
 }
 
 .warranty{
@@ -355,8 +398,7 @@ a {
 .warranty .item span{
   color: #ffffff;
   font-size: 18px;
-  font-family: 'ProximaNova';
-  font-weight: 800;
+  font-family: 'Roboto Condensed';
   text-transform: uppercase;
   padding-top: 15px;
   display: block;
@@ -383,11 +425,11 @@ a {
   margin: 0;
   color: #000000;
   font-size: 48px;
-  font-family: 'ProximaNova';
+  font-family: 'Roboto Condensed';
 }
 .comfort .item p span{
   color: #009ada;
-  font-family: 'ProximaNova';
+  font-family: 'Roboto Condensed';
 }
 .comfort .item:before{
   content: '';
@@ -478,7 +520,7 @@ a {
   font-size: 48px;
   display: block;
   text-align: center;
-  font-family: 'ProximaNova';
+  font-family: 'Roboto Condensed';
   letter-spacing: 2px;
   font-weight: 300;
 }
@@ -517,7 +559,7 @@ a {
 .schedule h2{
   color: #009ada;
   font-size: 48px;
-  font-family: 'ProximaNova';
+  font-family: 'Roboto Condensed';
   letter-spacing: 2px;
   font-weight: 300;
   text-align: center;
@@ -531,30 +573,29 @@ a {
 .schedule p{
   color: #000000;
   font-size: 30px;
-  font-family: 'ProximaNova';
+  font-family: 'Roboto Condensed';
   text-transform: uppercase;
   display: block;
   text-align: center;
-  font-weight: 800;
 }
 .schedule p span{
   color: #22b6f5;
 }
 .schedule a{
-  max-width: 380px;
+  max-width: 408px;
   width: 100%;
-  height: 40px;
   margin: 0 auto;
-  line-height: 40px;
+  text-align: center;
+  padding: 20px 20px;
   border-radius: 20px;
   padding-left: 55px;
-  background: #41a62a url(%=static=%content/pdf.png) no-repeat 20px 8px;
+  background: #41a62a url(../img/content/pdf.png) no-repeat 22px center;
   text-decoration: none;
   display: block;
   text-transform: uppercase;
   color: #fff;
   font-size: 14px;
-  font-family: 'ProximaNova';
+  font-family: 'Roboto Condensed';
   font-weight: 700;
   letter-spacing: 1px;
 }
@@ -566,7 +607,7 @@ a {
   max-width: 900px;
   color: #ffffff;
   font-size: 48px;
-  font-family: 'ProximaNova';
+  font-family: 'Roboto Condensed';
   letter-spacing: 2px;
   display: block;
   padding: 70px 0 0 30px;
@@ -595,8 +636,7 @@ a {
 .perfect-item form span{
   color: #ffffff;
   font-size: 24px;
-  font-family: 'ProximaNova';
-  font-weight: bold;
+  font-family: 'Roboto Condensed';
   display: block;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -605,20 +645,21 @@ a {
 .perfect-item form p{
   color: #ffffff;
   font-size: 24px;
-  font-family: 'ProximaNova';
+  font-family: 'Roboto Condensed';
   letter-spacing: 1px;
   margin: 0;
   display: block;
   padding-bottom: 10px;
 }
 .perfect-item form input[type="text"],
-.perfect-item form input[type="email"]{
+.perfect-item form input[type="email"],
+.perfect-item form input[type="tel"] {
   width: 100%;
   height: 40px;
   border-radius: 20px;
   color: #000000;
   font-size: 14px;
-  font-family: 'ProximaNova';
+  font-family: 'Roboto Condensed';
   font-style: italic;
   border: none;
   background: #e6e6e6;
@@ -632,7 +673,7 @@ a {
   height: 40px;
   width: 100%;
   font-size: 14px;
-  font-family: 'ProximaNova';
+  font-family: 'Roboto Condensed';
   text-align: center;
   color: #fff;
   text-transform: uppercase;
@@ -663,7 +704,7 @@ a {
 .control .title span{
   color: #ffffff;
   font-size: 48px;
-  font-family: 'ProximaNova';
+  font-family: 'Roboto Condensed';
   letter-spacing: 2px;
   display: block;
   padding-top: 45px;
@@ -673,7 +714,7 @@ a {
   width: 100%;
   color: #ffffff;
   font-size: 16px;
-  font-family: 'ProximaNova';
+  font-family: 'Roboto Condensed';
   letter-spacing: 1px;
   margin: 0 auto;
   display: block;
@@ -692,8 +733,8 @@ a {
   width: 235px;
   color: #1f1f1f;
   font-size: 16px;
-  font-family: 'ProximaNova';
-  font-weight: bold;
+  font-family: 'Roboto Condensed';
+
   display: block;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -707,7 +748,7 @@ a {
   font-size: 14px;
   display: inline-block;
   vertical-align: top;
-  font-family: 'ProximaNova';
+  font-family: 'Roboto Condensed';
   letter-spacing: 1px;
   text-align: left;
   margin-right: 60px;
@@ -863,9 +904,9 @@ a {
 .leader .text p{
   margin: 0;
   color: #ffffff;
-  font-family: 'ProximaNova';
+  font-family: 'Roboto Condensed';
   font-size: 48px;
-  font-weight: 800;
+
   letter-spacing: 1px;
   display: block;
 }
@@ -900,16 +941,16 @@ a {
 .guarantee .blue{
   color: #017acf;
   font-size: 48px;
-  font-family: 'ProximaNova';
-  font-weight: 800;
+  font-family: 'Roboto Condensed';
+
   display: block;
   letter-spacing: 4px;
 }
 .guarantee .black{
   color: #000000;
   font-size: 48px;
-  font-family: 'ProximaNova';
-  font-weight: 800;
+  font-family: 'Roboto Condensed';
+
   display: block;
   letter-spacing: 4px;
 }
@@ -997,8 +1038,8 @@ a {
 .last-section .list span{
   color: #ffffff;
   font-size: 48px;
-  font-family: 'ProximaNova';
-  font-weight: 800;
+  font-family: 'Roboto Condensed';
+
   display: block;
   line-height: 60px;
   letter-spacing: 2px;
@@ -1040,8 +1081,8 @@ a {
 .last-section .list ul li p{
   color: #ffffff;
   font-size: 16px;
-  font-family: 'ProximaNova';
-  font-weight: 800;
+  font-family: 'Roboto Condensed';
+
   letter-spacing: 2px;
   text-transform: uppercase;
   margin: 0;
@@ -1059,14 +1100,13 @@ a {
   display: block;
   font-size: 30px;
   color: #1c1c1c;
-  font-family: 'ProximaNova';
+  font-family: 'Roboto Condensed';
   letter-spacing: 1px;
 }
 .last-section .form span{
   color: #06acdc;
   font-size: 30px;
-  font-family: 'ProximaNova';
-  font-weight: bold;
+  font-family: 'Roboto Condensed';
   display: block;
   padding-top: 5px;
   text-align: center;
@@ -1096,7 +1136,8 @@ a {
   background: #f1f1f1 url(%=static=%content/input-ico3.png) no-repeat 27px 10px;
 }
 .last-section .form form .input input[type="text"],
-.last-section .form form .input input[type="email"]{
+.last-section .form form .input input[type="email"],
+.last-section .form form .input input[type="tel"] {
   background: none;
   border: none;
   outline: none;
@@ -1105,7 +1146,7 @@ a {
   padding-left: 65px;
   color: #000000;
   font-size: 16px;
-  font-family: 'ProximaNova';
+  font-family: 'Roboto Condensed';
   font-style: italic;
 }
 .last-section .form form input[type="submit"]{
@@ -1114,7 +1155,7 @@ a {
   height: 40px;
   width: 100%;
   font-size: 16px;
-  font-family: 'ProximaNova';
+  font-family: 'Roboto Condensed';
   text-align: center;
   color: #fff;
   text-transform: uppercase;
@@ -1130,8 +1171,8 @@ a {
   text-align: center;
   color: #272727;
   font-size: 16px;
-  font-family: 'ProximaNova';
-  font-weight: 800;
+  font-family: 'Roboto Condensed';
+
   display: block;
   text-transform: uppercase;
   margin: 30px 0 10px;
@@ -1209,7 +1250,7 @@ a {
     display: block;
     font-size: 24px;
     color: #1c1c1c;
-    font-family: 'ProximaNova';
+    font-family: 'Roboto Condensed';
     letter-spacing: 1px;
 }
 .poup_form .input.username {
@@ -1232,7 +1273,8 @@ a {
     border: 1px solid #e6e6e6;
 }
 .poup_form .input input[type="text"],
-.poup_form .input input[type="email"] {
+.poup_form .input input[type="email"],
+.poup_form .input input[type="tel"]  {
     background: none;
     border: none;
     outline: none;
@@ -1241,7 +1283,7 @@ a {
     padding-left: 65px;
     color: #000000;
     font-size: 16px;
-    font-family: 'ProximaNova';
+    font-family: 'Roboto Condensed';
     font-style: italic;
 }
 .poup_form input[type="submit"] {
@@ -1252,7 +1294,7 @@ a {
     margin: 0 auto;
     width: 100%;
     font-size: 16px;
-    font-family: 'ProximaNova';
+    font-family: 'Roboto Condensed';
     text-align: center;
     color: #fff;
     text-transform: uppercase;
@@ -1270,8 +1312,7 @@ a {
 .poup_form .popup_bottom span {
       color: #06acdc;
     font-size: 24px;
-    font-family: 'ProximaNova';
-    font-weight: bold;
+    font-family: 'Roboto Condensed';
     display: block;
     padding-top: 5px;
     text-align: center;
@@ -1506,17 +1547,22 @@ a {
     text-align: center;
   }
   .principles .item{
-    background: url(%=static=%content/cloud-mob.png) no-repeat 17px right /cover;
     min-height: 200px;
     margin-bottom: 23px;
+    background-size: 386px auto;
+    background-position: calc(50% - 43px) 47px;
+    background-repeat: no-repeat;
+    background-image: url(../img/content/cloud-mob.png);
   }
   .principles .item p{
     display: none;
   }
   .principles .item span{
-    max-width: 200px;
+    max-width: 222px;
     padding-top: 141px;
     font-size: 16px;
+    margin: auto;
+    padding-bottom: 10px;
   }
   .principles .list > div{
       margin-bottom: 23px;
@@ -1621,7 +1667,7 @@ a {
     font-size: 30px;
   }
   .schedule{
-    padding-bottom: 0;
+    padding-bottom: 30px;
     padding-top: 0;
   }
   .schedule img{
@@ -1665,7 +1711,8 @@ a {
     display: none;
   }
   .perfect-item form input[type="text"],
-  .perfect-item form input[type="email"]{
+  .perfect-item form input[type="email"],
+    .perfect-item form input[type="tel"]{
     margin-bottom: 20px;
     text-align: center;
     padding: 0;
@@ -1836,23 +1883,26 @@ a {
         letter-spacing: 0px;
     }
   }
-  .last-section .form form .input.username input{
+  .last-section .form form .input.username input[value=""]{
         background: #f1f1f1 url(../img/content/input-ico1.png) no-repeat 73px 9px;
         transition: all .5s;
-        &:focus {
-            background: #f1f1f1 url(../img/content/input-ico1.png) no-repeat 3px 9px;
-        }
     }
+    .last-section .form form .input.username input:focus,
+    .last-section .form form .input.username input {
+      background: #f1f1f1 url(../img/content/input-ico1.png) no-repeat 8px 9px;
+  }
     .last-section .form form .input input[type="text"],
-    .last-section .form form .input input[type="email"] {
+    .last-section .form form .input input[type="email"],
+    .last-section .form form .input input[type="tel"] {
         padding: 0 24px;
     }
-    .last-section .form form .input.phone input{
+    .last-section .form form .input.phone input[value=""]{
         transition: all .5s;
-        background: #f1f1f1 url(../img/content/input-ico2.png) no-repeat 54px 10px;
-        &:focus {
-            background: #f1f1f1 url(../img/content/input-ico2.png) no-repeat 4px 10px;
-        }
+        background: #f1f1f1 url(../img/content/input-ico2.png) no-repeat 73px 10px;
+    }
+    .last-section .form form .input.phone input,
+    .last-section .form form .input.phone input:focus {
+        background: #f1f1f1 url(../img/content/input-ico2.png) no-repeat 8px 10px;
     }
   .last-section .form p{
     font-size: 24px;
@@ -2026,6 +2076,18 @@ a {
   .control .row {
       background-position: calc(100% + 83px) 25%;
   }
+  .poup_form {
+    background: #fff;
+      max-width: 323px;
+      padding: 20px;
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      .contact {
+          margin-top: 10px;
+      }
+  }
   .control .item-1{
     &:after {
         content: "";
@@ -2057,6 +2119,42 @@ a {
       width: 100%;
       top: 30px;
       left: 10px;
+    }
+  }
+
+  .control .item-1 {
+    &::after {
+      width: calc(100% - 116px);
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      height: 2px;
+      width: 200px;
+      background-color: #41a62a;
+      top: 116px;
+      left: calc(100% - 157px);
+      z-index: -1;
+      transform: rotate(60deg);
+    }
+  }
+
+  .control .item-4 {
+    &::after {
+      width: calc(100% - 116px);
+    }
+
+    &:before {
+      content: "";
+        position: absolute;
+        height: 2px;
+        width: 200px;
+        background-color: #f07b07;
+        top: -56px;
+        left: calc(100% - 157px);
+        z-index: -1;
+        transform: rotate(-60deg);
     }
   }
 }

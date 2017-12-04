@@ -24,6 +24,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i&amp;subset=cyrillic" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto:900&amp;subset=cyrillic" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&amp;subset=cyrillic" rel="stylesheet">
+
   <link rel="stylesheet" href="libs/remodal/style/remodal.css">
   <link rel="stylesheet" href="libs/remodal/style/remodal-default-theme.css">
   <link href="%=static=%css/separate-css/flipclock.css" rel="stylesheet">
@@ -68,7 +70,7 @@
       <div class="main-block">
         Тепловые насосы Daikin Altherma <span>в 4 раза эффективнее</span>
         <p>традиционнОй системы <br> отопления</p>
-        <a href="#modal">узнать стоимость</a>
+        <a href="#modal" class="modal-top-form">узнать стоимость</a>
         <div class="header_thank" style="display: none;">
             <div class="container">
                 <h3>ВАША ЗАЯВКА ПРИНЯТА.</h3>
@@ -101,6 +103,7 @@
       </div>
     </div>
   </header>
+<main>
   <section class="principles">
     <div class="container">
       <div class="row">
@@ -236,10 +239,10 @@
         <p>Мы свяжемся с Вами в ближайшее время</p>
         <div class="row">
           <div class="col-md-3">
-            <input type="text" name="name" placeholder="Введите Имя">
+            <input type="text" name="name" placeholder="Введите Имя" required>
           </div>
           <div class="col-md-3">
-            <input type="text" name="phone" placeholder="Введите телефон" required>
+            <input type="tel" name="phone" placeholder="Введите телефон" required>
           </div>
           <div class="col-md-3">
             <input type="email" name="email" placeholder="Введите e-mail" class="hidden">
@@ -398,16 +401,16 @@
             <p>на любую модель</p>
             <form id="post_form_3" name="скидка">
               <div class="input username">
-                <input type="text" name="name" placeholder="Ваше Имя" required>
+                <input type="text" name="name" placeholder="Ваше Имя" required onkeyup="this.setAttribute('value', this.value);" value="">
               </div>
               <div class="input phone">
-                <input type="text" name="phone" placeholder="Введите телефон" required>
+                <input type="tel" name="phone" placeholder="Введите телефон" required onkeyup="this.setAttribute('value', this.value);" value="">
               </div>
               <div class="input mail">
-                <input type="email" name="email" placeholder="Введите e-mail">
+                <input type="email" name="email" placeholder="Введите e-mail" onkeyup="this.setAttribute('value', this.value);" value="">
               </div>
               <input type="submit" value="получить скидку" class="send" name="submit3">
-              <input type="hidden" name="postform" value="получить скидку" class="hide">
+              <input type="hidden" name="postform" value="Получить скидку" class="hide">
 
             </form>
             <div class="post_thanks_2 hide">Спасибо, мы с вами свяжемся в ближайшее время</div>
@@ -419,6 +422,7 @@
       </div>
     </div>
   </section>
+</main>
 <!-- <footer class="footer">
   <div class="container">
     <div class="copy">
@@ -441,13 +445,13 @@
         <p>по любому вопросу</p>
   <form name="contact" id="post_form" class="консультация">
       <div class="input username">
-      <input name="name" type="text" placeholder="Ваше Имя" required>
+      <input name="name" type="text" placeholder="Ваше Имя" required id="username-1">
       </div>
       <div class="input phone">
-      <input name="phone" type="text" placeholder="Введите телефон" required>
+      <input name="phone" type="tel" placeholder="Введите телефон" required>
       </div>
       <div class="input mail">
-      <input name="email" type="email" placeholder="Введите e-mail" required>
+      <input name="email" type="email" placeholder="Введите e-mail">
       </div>
       <input class="send" value="ПЕРЕЗВОНИТЕ МНЕ" type="submit" name="submit1">
       <input type="hidden" name="postform" value="Консультация" class="hide">
@@ -462,10 +466,24 @@
   <script src="%=static=%js/separate-js/jquery-1.12.0.min.js"></script>
   <script src="%=static=%js/separate-js/flipclock.js"></script>
   <script src="%=static=%js/separate-js/main.js"></script>
-
+  <script src="%=static=%js/separate-js/jquery.validate.min.js"></script>
   <script src="libs/remodal/js/remodal.min.js"></script>
     <script>
 $(document).ready(function() {
+  if(location.hash === "#modal") {
+    setTimeout(function(){
+      $('#username-1').first().focus()
+    }, 300)
+  }
+  $('.modal-top-form').click(function () {
+    setTimeout(function(){
+      $('#username-1').first().focus()
+    }, 300)
+  })
+
+    $('#post_form').validate()
+    $('#post_form_2').validate()
+    $('#post_form_3').validate()
     $('#post_form').submit(function () {
     const form = $(this);
     let data = form.serialize();
@@ -474,15 +492,20 @@ $(document).ready(function() {
             url: "mail.php",
             dataType: 'json',
             data: data,
-            beforeSend:function () {
-            },
+            beforeSend: function () { // сoбытиe дo oтпрaвки
+                    if ($('#post_form input').hasClass('error')) {
+                      return false
+                    } else {
+                      form.find('input[type="submit"]').attr('disabled', 'disabled') // нaпримeр, oтключим кнoпку, чтoбы нe жaли пo 100 рaз
+                      return
+                    }
+                  },
             success: function() {
                 $('.header .main-block a').hide('slow');
                 $('.remodal-close').click();
                 $('.header_thank').show('slow');
             },
             error: function (xhr, ajaxOptions, thrownError) { // в случae нeудaчнoгo зaвeршeния зaпрoсa к сeрвeру
-                console.log(xhr, ajaxOptions, thrownError)
               },
         })
         return false;
@@ -495,8 +518,14 @@ $(document).ready(function() {
             url: "mail.php",
             dataType: 'json',
             data: data,
-            beforeSend:function () {
-            },
+            beforeSend: function () { // сoбытиe дo oтпрaвки
+                    if ($('#post_form_2 input').hasClass('error')) {
+                      return false
+                    } else {
+                      form.find('input[type="submit"]').attr('disabled', 'disabled') // нaпримeр, oтключим кнoпку, чтoбы нe жaли пo 100 рaз
+                      return
+                    }
+                  },
             success: function() {
                 $('#post_form_2').hide('slow');
                 $('.post_thanks').removeClass('hide');
@@ -513,8 +542,14 @@ $(document).ready(function() {
             url: "mail.php",
             dataType: 'json',
             data: data,
-            beforeSend:function () {
-            },
+            beforeSend: function () { // сoбытиe дo oтпрaвки
+                    if ($('#post_form_3 input').hasClass('error')) {
+                      return false
+                    } else {
+                      form.find('input[type="submit"]').attr('disabled', 'disabled') // нaпримeр, oтключим кнoпку, чтoбы нe жaли пo 100 рaз
+                      return
+                    }
+                  },
             success: function() {
                 $('#post_form_3').hide('slow');
                 $('.post_thanks_2').removeClass('hide');
@@ -522,8 +557,6 @@ $(document).ready(function() {
         })
         return false;
     });
-
-
 });
 </script>
 </body>
